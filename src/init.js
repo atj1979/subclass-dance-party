@@ -1,7 +1,7 @@
 $(document).ready(function(){
   window.dancers = [];
   backgroundArr =[
-      'http://pichost.me/1770974/',
+      'http://p1.pichost.me/i/53/1770974.jpg',
       'http://designdawgs.net/wp-content/uploads/2014/08/Zebra-Dance-Floor-3.jpg',
       'http://designdawgs.net/wp-content/uploads/2014/08/Zebra-Dance-Floor-3.jpg',
       'http://www.hollywoodballroomdc.com/wp-content/uploads/2012/02/ballrom-windows-empty-A.jpg'
@@ -9,9 +9,9 @@ $(document).ready(function(){
 
 
   ];
-  var background = Dancer.prototype.generateImage(backgroundArr);
-  console.log(background);
-  $('body').css({background : 'url('+background+')'});
+      var background = Dancer.prototype.generateImage(backgroundArr);
+      console.log(background);
+      $('body').css({background : 'url('+background+') no-repeat center center fixed'});
 
   //find a close pair
   //dancer1pos = $(window.dancers[i]).position()
