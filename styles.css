@@ -23,3 +23,7 @@ body, a:link, a:visited, a:active{
 .dancer{
   position:absolute;
 }
+.lineup{
+  padding: 5px 12px;
+  float:right;
+}
