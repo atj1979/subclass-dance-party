@@ -22,14 +22,19 @@ $(document).ready(function(){
 
     // make a dancer with a random position
 
-    // pseudo-classical
-    var blinkyDancer = new BlinkyDancer(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 5000
     );
+    // pseudo-classical
+    // var blinkyDancer = new BlinkyDancer(
+    //   $("body").height() * Math.random(),
+    //   $("body").width() * Math.random(),
+    //   Math.random() * 5000
+    // );
 
-    $('body').append(blinkyDancer.$node);
+    $('body').append(dancer.$node);
   });
 });
 
