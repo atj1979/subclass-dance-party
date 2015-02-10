@@ -27,7 +27,7 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 5000
     );
-    // pseudo-classical
+    // pseudo-classical"
     // var blinkyDancer = new BlinkyDancer(
     //   $("body").height() * Math.random(),
     //   $("body").width() * Math.random(),
@@ -35,6 +35,21 @@ $(document).ready(function(){
     // );
 
     $('body').append(dancer.$node);
-  });
-});
 
+    $('.dancer').hover(
+        function(){
+            $(this).animate({
+            height: '50px',
+            width: '50px'},
+            'fast')},
+
+        function (){
+            $(this).animate({
+            height: '200px',
+            width: '200px'},
+            'slow')}
+    );
+
+
+});
+});
