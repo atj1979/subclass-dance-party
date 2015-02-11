@@ -18,8 +18,11 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.step();
 
   if(dancers.length > 5){
-    this.goToPartner();
+    //this.goToPartner();
+    debugger;
+    this.circleUp();
   }
+
 };
 
 Dancer.prototype.step = function(){
@@ -78,5 +81,19 @@ Dancer.prototype.generateImage = function(arr){
 
   return arr !== undefined ? arr[Math.floor(Math.random() * arr.length)] : images[Math.floor(Math.random() * images.length)];
 }
+Dancer.prototype.circleUp = function (){
+  //calculate distance (in degrees) between our dancers
+  var distance = 360/ dancers.length;
+  var radius=200;
+  //loop though our dancers
+  for (var i = 0; i < dancers.length; i++){
+    //x=cos (distance * dancers index)
+    var x = Math.cos(i * distance) * radius + 270;
+    //y=sin (distance * dancers index)
+    var y = Math.sin(i * distance) * radius + 500;
+    //set position top and left
+    $(dancers[i]).animate({top: y + 'px', left: x + 'px'}, 10000);
+  }
+};
 
 

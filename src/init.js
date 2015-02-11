@@ -1,23 +1,15 @@
 $(document).ready(function(){
   window.dancers = [];
-  var backgroundArr =[
-      'http://p1.pichost.me/i/53/1770974.jpg',
-      'http://www.hollywoodballroomdc.com/wp-content/uploads/2012/02/ballrom-windows-empty-A.jpg'
-  ];
 
+  // sets dancefloor background
+  var backgroundArr =[
+      'img/bg1.jpg',
+      'img/bg2.jpg'
+  ];
   var background = Dancer.prototype.generateImage(backgroundArr);
-  console.log(background);
   $('body').css({background : 'url('+background+') no-repeat center center fixed'});
 
-  //find a close pair
-
-  //dancer1pos = $(window.dancers[i]).position()
-  //dancer1pos.left
-  //dancer1.top
-  //dancer2....
-  //
-  //Math.hypot(dancer1pos.left-dancer2pos.left, dancer1pos.top-dancer2pos.top);
-  //
+  // lineup handler
   $(".lineup").on("click", function (event){
 
     for (var i = 0; i < window.dancers.length; i++){
@@ -27,7 +19,7 @@ $(document).ready(function(){
     }
   });
 
-
+  // adds new Dancer
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
@@ -56,15 +48,10 @@ $(document).ready(function(){
       Math.random() * 5000
     );
     window.dancers.push(dancer.$node);
-    // pseudo-classical"
-    // var blinkyDancer = new BlinkyDancer(
-    //   $("body").height() * Math.random(),
-    //   $("body").width() * Math.random(),
-    //   Math.random() * 5000
-    // );
 
     $('body').append(dancer.$node);
 
+    // mouseover handler
     $('.dancer').hover(
         function(){
             $(this).animate({
