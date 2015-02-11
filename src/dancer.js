@@ -16,6 +16,10 @@ var Dancer = function(top, left, timeBetweenSteps){
   // this one sets the position to some random default point within the body
   this.setPosition(top, left);
   this.step();
+
+  if(dancers.length > 5){
+    this.goToPartner();
+  }
 };
 
 Dancer.prototype.step = function(){
@@ -33,6 +37,33 @@ Dancer.prototype.setPosition = function(top, left){
     left: left
   };
   this.$node.css(styleSettings);
+};
+
+Dancer.prototype.goToPartner = function(){
+
+  var pos1 = this.$node.position();
+  var partner = {};
+
+  // find nearest partner
+  for(var i = 0; i < dancers.length; i++){
+    var currentDancer = dancers[i];
+    var pos2 = $(currentDancer).position();
+
+    var a = Math.pow((pos2.top - pos1.top), 2);
+    var b = Math.pow((pos2.left - pos1.left), 2);
+    var c = Math.sqrt(a + b);
+
+    if(c > partner.distance && c > 0){
+      partner.distance = c;
+      partner.node = currentDancer.$node;
+    }
+  }
+
+  // go to partner
+  this.$node.animate({top: '250px', left: '250px'}, 10000);
+  $(partner.node).animate({top:'200px', left: '200px'}, 10000);
+
+
 };
 
 Dancer.prototype.generateImage = function(arr){
